@@ -1,0 +1,15 @@
+on load:
+  set {locations::*} to location(-51.5,4,-544.5,"world_lobby",0,0) and location(-106.5,15.0,392.5,"world_lobby",0,0)
+
+on join:
+  teleport player to random element of {locations::*}
+  message "&6Use the portals or &b/menu &6or &b/? &6to pick a server!" to player
+#  command "execute at %player% run summon firework_rocket ^ ^10 ^6 {LifeTime:30,Motion:[0.0,-0.85,0.0],FireworksItem:{id:""firework_rocket"",Count:1,tag:{Fireworks:{Explosions:[{Type:2,Flicker:1b,Trail:1b,Colors:[I;65314],FadeColors:[I;16711680]}]}}}}"
+  set the join message to ""
+
+on first join:
+  command "connector proxycommand broadcast minimessage <gold>«Welcome» &9%player% joined for the first time. You are very welcome and we hope you'll have fun on this server :)"
+  command "discordsrv broadcast ```%player% joined the server for the first time```"
+
+on leave:
+  set the leave message to ""
